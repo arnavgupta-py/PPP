@@ -1,0 +1,303 @@
+:root {
+    /* Color Palette - Deeper, richer tones */
+    --bg-color-primary: #e6e0d9; /* Lighter base for background */
+    --bg-color-secondary: #d3ccc4; /* Slightly darker for background depth */
+    --text-color: #333;
+    --primary-color: #6a350a; /* Deep, rich wood brown for accents */
+    --primary-color-light: #8b4f1c; /* Lighter tone for hover/active */
+    --ivory-start: #fdfdf5; /* Off-white for keys, subtle gradient */
+    --ivory-end: #eeebe3;
+    --key-border-color: #c9bda5;
+    --harmonium-body-color: #3c1e0a; /* Dark wood for harmonium casing */
+    --shadow-color-light: rgba(0, 0, 0, 0.07);
+    --shadow-color-medium: rgba(0, 0, 0, 0.15);
+    --shadow-color-strong: rgba(0, 0, 0, 0.25);
+
+    /* Fonts */
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-body: 'Lato', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect x="0" y="0" width="100" height="100" fill="%23d3ccc4"/><g opacity="0.5"><path d="M-20 0l40 100h20L0 0zm60 0l40 100h20L40 0z" fill="%23d3ccc4"/><path d="M-40 0l40 100h20L-20 0zm60 0l40 100h20L20 0z" fill="%23d3ccc4"/></g><g opacity="0.3"><path d="M-20 0l40 100h20L0 0zm60 0l40 100h20L40 0z" fill="%23e6e0d9"/><path d="M-40 0l40 100h20L-20 0zm60 0l40 100h20L20 0z" fill="%23e6e0d9"/></g></svg>');
+    background-color: var(--bg-color-primary);
+    background-size: 100px 100px;
+    background-attachment: fixed;
+    background-blend-mode: multiply;
+
+    opacity: 0;
+    animation: fadeInPage 1s ease-out forwards;
+}
+
+.portfolio-container {
+    max-width: 960px;
+    width: 90%;
+    margin: 2rem auto;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 3rem 4rem;
+    border-radius: 10px;
+    border: 1px solid #e8e8e8;
+    box-shadow: 0 15px 40px var(--shadow-color-medium);
+    position: relative;
+    overflow: hidden;
+    transform: scale(0.95);
+    opacity: 0;
+    animation: scaleIn 0.8s ease-out 0.5s forwards;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #e0e0e0;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideDownIn 0.8s ease-out 0.8s forwards;
+}
+
+header h1 {
+    font-family: var(--font-heading);
+    margin: 0;
+    font-size: 3.5rem;
+    color: var(--text-color);
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+}
+header h1 span {
+    color: var(--primary-color);
+}
+
+header h2 {
+    margin: 0.5rem 0 0 0;
+    font-weight: 400;
+    font-size: 1.3rem;
+    color: #777;
+}
+
+/* Harmonium Navigation Styling */
+.harmonium-nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUpIn 0.8s ease-out 1s forwards;
+}
+
+.harmonium {
+    background: linear-gradient(145deg, #8b4f1c, #6a350a);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px var(--shadow-color-medium), 
+                inset 0 2px 4px rgba(255,255,255,0.2),
+                inset 0 -2px 4px rgba(0,0,0,0.4);
+    border: 2px solid #542a08;
+}
+
+.stops-rail {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    background: #542a08;
+    border-radius: 5px;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.stop {
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(145deg, #f0ede5, #c9c3b8);
+    border-radius: 50%;
+    border: 2px solid #555;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.4), inset 0 1px 2px rgba(255,255,255,0.5);
+}
+
+.keyboard {
+    position: relative;
+}
+
+.white-keys {
+    display: flex;
+}
+
+.key {
+    background: linear-gradient(to bottom, var(--ivory-start), var(--ivory-end));
+    border: 1px solid var(--key-border-color);
+    width: 90px;
+    height: 140px;
+    border-radius: 0 0 5px 5px;
+    margin: 0 1px;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: inset 0 -8px 10px rgba(0, 0, 0, 0.1), 
+                0 5px 8px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Align text to bottom */
+    align-items: center;
+    padding-bottom: 10px;
+    position: relative;
+}
+
+.key:hover {
+    transform: translateY(-5px);
+    box-shadow: inset 0 -8px 10px rgba(0, 0, 0, 0.1), 
+                0 10px 15px rgba(0, 0, 0, 0.35);
+}
+
+.key.active {
+    background: var(--primary-color-light);
+    box-shadow: inset 0 6px 10px rgba(0, 0, 0, 0.3);
+    transform: translateY(2px);
+    border-top: 4px solid var(--primary-color);
+    color: #fff;
+}
+
+.key.active .key-label, .key.active .key-sublabel {
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.key-label {
+    font-size: 2rem;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+    text-shadow: 0.5px 0.5px 1px rgba(0,0,0,0.1);
+}
+
+.key-sublabel {
+    font-size: 0.9rem;
+    font-family: var(--font-body);
+    color: #555;
+    margin-top: 5px;
+    font-weight: 700;
+}
+
+.black-keys {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 85px;
+    pointer-events: none; /* Allows clicks to go through to white keys */
+    z-index: 1;
+}
+
+.black-key {
+    position: absolute;
+    width: 50px;
+    height: 85px;
+    background: linear-gradient(to bottom, #333, #000);
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.4), inset 0 -4px 5px rgba(255,255,255,0.1);
+    border: 1px solid #444;
+}
+
+/* Content Section Styling (unchanged) */
+.content-section {
+    display: none; padding: 2rem; background: #fcfcfc; border: 1px solid #efefef;
+    border-radius: 8px; box-shadow: 0 5px 15px var(--shadow-color-light);
+    margin-bottom: 2rem; opacity: 0; transform: translateY(20px);
+}
+.content-section.active-section {
+    display: block;
+    animation: contentFadeIn 0.7s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+.content-section h2 {
+    font-family: var(--font-heading); font-size: 2.2rem; color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color-light); padding-bottom: 0.8rem;
+    margin-top: 0; margin-bottom: 1.8rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.02);
+}
+p { margin-bottom: 1.2rem; font-size: 1.05rem; }
+ul { list-style-type: none; padding-left: 0; }
+li {
+    margin-bottom: 0.8rem; padding: 0.7rem 1rem; transition: all 0.2s ease-out;
+    border-left: 4px solid transparent; background-color: transparent; border-radius: 4px;
+}
+li:hover {
+    background-color: #faf6f0; transform: translateX(8px);
+    border-left-color: var(--primary-color-light); box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.05);
+}
+a {
+    color: var(--primary-color); text-decoration: none; font-weight: 700;
+    position: relative; display: inline-block; padding-bottom: 2px;
+}
+a::after {
+    content: ''; position: absolute; width: 100%; transform: scaleX(0); height: 2px;
+    bottom: 0; left: 0; background-color: var(--primary-color-light);
+    transform-origin: bottom right; transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+a:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+footer {
+    text-align: center; margin-top: 4rem; font-size: 0.95rem; color: #999;
+    opacity: 0; animation: slideUpIn 1s ease-out 1.2s forwards;
+}
+
+/* Animations (unchanged) */
+@keyframes fadeInPage { from { opacity: 0; } to { opacity: 1; } }
+@keyframes scaleIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+@keyframes slideDownIn { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideUpIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes contentFadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body { padding: 0; align-items: flex-start; }
+    .portfolio-container {
+        padding: 1.5rem 1rem; margin: 1rem auto; border-radius: 0;
+        box-shadow: none; width: 100%; max-width: none;
+    }
+    header h1 { font-size: 2.5rem; }
+    header h2 { font-size: 1.1rem; }
+
+    /* Hide decorative harmonium parts on mobile for a clean vertical layout */
+    .stops-rail, .black-keys {
+        display: none;
+    }
+
+    .harmonium {
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        padding: 0;
+    }
+
+    .white-keys {
+        flex-direction: column;
+    }
+
+    .key {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1.5rem;
+        width: auto;
+        height: 55px;
+        margin: 3px 0;
+        border-radius: 5px; /* Add radius back for stacked view */
+        background: linear-gradient(145deg, #fdfdf5, #eeebe3);
+    }
+    .key-label { font-size: 1.5rem; }
+    .key-sublabel { margin-top: 0; font-size: 0.85rem; }
+
+    .content-section { padding: 1.5rem; border-radius: 5px; box-shadow: none; }
+    .content-section h2 { font-size: 1.8rem; margin-bottom: 1.2rem; }
+    p { font-size: 1rem; }
+    li { padding: 0.5rem 0.8rem; }
+}
