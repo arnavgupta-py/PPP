@@ -27,6 +27,18 @@ document.addEventListener('DOMContentLoaded', function () {
         
         if (targetSection) {
             targetSection.classList.add('active-section');
+            
+            // --- ADD THIS BLOCK BACK FOR AUTO-SCROLLING ---
+            // This ensures the user sees the start of the newly selected section.
+            const headerOffset = 40; // Extra padding from the top
+            const elementPosition = contentContainer.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth"
+            });
+            // --- END OF ADDED BLOCK ---
         }
     };
 
