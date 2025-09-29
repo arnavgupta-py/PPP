@@ -4,19 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Yogesh Pingle's Portfolio</title>
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="sticky-links">
+        <a href="#" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin fa-lg"></i></a>
+        <a href="#" target="_blank" aria-label="Google Scholar Profile"><i class="fas fa-graduation-cap fa-lg"></i></a>
+    </div>
+
     <div class="portfolio-container">
         <header data-scroll>
             <div class="header-content">
                 <h1>Dr. Yogesh Pingle</h1>
-                <h2>Deputy Head of Department <br> Computer Science and Engineering (Data Science) <br> Vidyavardhini's College of Engineering and Technology</h2>
+                <h2>Dean Students Affairs,<br>
+                    Deputy Head of Department and Assistant Professor,<br>
+                    Computer Science & Engineering (Data Science)<br>
+                    Vidyavardhini's College of Engineering and Technology, Vasai(W),<br>
+                    Affiliated to University of Mumbai, INDIA
+                </h2>
             </div>
             <div class="profile-image-container">
                 <img src="profile.png" alt="Dr. Yogesh Pingle" class="profile-image">
@@ -34,39 +43,43 @@
                 </div>
                 <div class="keyboard">
                     <div class="black-keys">
-                        <div class="black-key" style="left: 10%;"></div>
-                        <div class="black-key" style="left: 24.5%;"></div>
-                        <div class="black-key" style="left: 53%;"></div>
-                        <div class="black-key" style="left: 67.5%;"></div>
-                        <div class="black-key" style="left: 82%;"></div>
+                        <div class="black-key" style="left: 10.0%;"></div>
+                        <div class="black-key" style="left: 22.5%;"></div>
+                        <div class="black-key" style="left: 47.5%;"></div>
+                        <div class="black-key" style="left: 60.0%;"></div>
+                        <div class="black-key" style="left: 72.5%;"></div>
                     </div>
                     <div class="white-keys">
                         <div class="key" data-section="about" data-note="Sa">
                             <span class="key-label">सा</span>
                             <span class="key-sublabel">About</span>
                         </div>
-                        <div class="key" data-section="research" data-note="Re">
+                        <div class="key" data-section="education" data-note="Re">
                             <span class="key-label">रे</span>
-                            <span class="key-sublabel">Research</span>
+                            <span class="key-sublabel">Education</span>
                         </div>
-                        <div class="key" data-section="publications" data-note="Ga">
+                        <div class="key" data-section="experience" data-note="Ga">
                             <span class="key-label">ग</span>
+                            <span class="key-sublabel">Work Experience</span>
+                        </div>
+                        <div class="key" data-section="publications" data-note="Ma">
+                            <span class="key-label">म</span>
                             <span class="key-sublabel">Publications</span>
                         </div>
-                        <div class="key" data-section="teaching" data-note="Ma">
-                            <span class="key-label">म</span>
-                            <span class="key-sublabel">Teaching</span>
-                        </div>
-                        <div class="key" data-section="students" data-note="Pa">
+                        <div class="key" data-section="events" data-note="Pa">
                             <span class="key-label">प</span>
-                            <span class="key-sublabel">Students</span>
+                            <span class="key-sublabel">Events Judged</span>
                         </div>
-                        <div class="key" data-section="media" data-note="Dha">
+                        <div class="key" data-section="workshops" data-note="Dha">
                             <span class="key-label">ध</span>
-                            <span class="key-sublabel">Media</span>
+                            <span class="key-sublabel">Guest Lectures</span>
                         </div>
-                        <div class="key" data-section="contact" data-note="Ni">
+                        <div class="key" data-section="awards" data-note="Ni">
                             <span class="key-label">नि</span>
+                            <span class="key-sublabel">Awards</span>
+                        </div>
+                        <div class="key" data-section="contact" data-note="Sa_hi">
+                            <span class="key-label">सां</span>
                             <span class="key-sublabel">Contact</span>
                         </div>
                     </div>
@@ -76,18 +89,27 @@
         
         <main id="content-container">
             <section id="about" class="content-section active-section">
-                <div class="content-card" data-scroll>
-                    <h2>About Dr. Yogesh Pingle</h2>
-                    <p>Welcome to my professional portfolio. With a passion that bridges the analytical world of data science and the rich cultural heritage of Indian classical music, my research delves into the fascinating intersections of technology, cognition, and art.</p>
-                </div>
-            </section>
-
-            <section id="research" class="content-section">
-                <h2 data-scroll>Research Areas</h2>
+                <h2 data-scroll>About & Expertise</h2>
                 <div class="content-grid">
+                    <div class="content-card" data-scroll><p>Welcome to my professional portfolio. With a passion that bridges the analytical world of data science and the rich cultural heritage of Indian classical music, my research delves into the fascinating intersections of technology, cognition, and art.</p></div>
                     <div class="content-card" data-scroll><h3>Machine Learning & AI</h3><p>Developing novel algorithms and models for pattern recognition and automated decision-making systems.</p></div>
                     <div class="content-card" data-scroll><h3>Data Mining & Analytics</h3><p>Extracting meaningful insights from large datasets using advanced statistical methods and computational techniques.</p></div>
                     <div class="content-card" data-scroll><h3>Music Information Retrieval</h3><p>Applying computational methods to analyze, classify, and generate musical content, bridging data science with my passion for harmonium.</p></div>
+                </div>
+            </section>
+
+            <section id="education" class="content-section">
+                <h2 data-scroll>Education & Certificates</h2>
+                <div class="content-grid">
+                    <div class="content-card" data-scroll><h3>[Degree Name]</h3><p><strong>[University Name], [Year].</strong> Details about the degree or certification.</p></div>
+                    <div class="content-card" data-scroll><h3>[Certification Name]</h3><p><strong>[Issuing Body], [Year].</strong> Details about the certification.</p></div>
+                </div>
+            </section>
+
+            <section id="experience" class="content-section">
+                <h2 data-scroll>Work Experience & Responsibilities</h2>
+                <div class="content-grid">
+                    <div class="content-card" data-scroll><h3>[Job Title]</h3><p><strong>[Company/Institution], [Years].</strong> Description of roles and responsibilities.</p></div>
                 </div>
             </section>
 
@@ -99,27 +121,24 @@
                 </div>
             </section>
             
-            <section id="teaching" class="content-section">
-                <h2 data-scroll>Courses Taught</h2>
+            <section id="events" class="content-section">
+                <h2 data-scroll>Events Judged</h2>
                 <div class="content-grid">
-                    <div class="content-card" data-scroll><h3>Advanced Machine Learning</h3><p>Exploration of cutting-edge ML models, including ensemble methods and advanced neural architectures.</p></div>
-                    <div class="content-card" data-scroll><h3>Computational Musicology</h3><p>An interdisciplinary course on applying computational techniques to analyze musical structures.</p></div>
+                    <div class="content-card" data-scroll><h3>[Event Name]</h3><p><strong>[Organizing Body], [Year].</strong> Details about the event and the role performed.</p></div>
                 </div>
             </section>
             
-            <section id="students" class="content-section">
-                <h2 data-scroll>Research Group</h2>
+            <section id="workshops" class="content-section">
+                <h2 data-scroll>Workshops & Guest Lectures</h2>
                 <div class="content-grid">
-                    <div class="content-card" data-scroll><h3>[Student Name 1]</h3><p><strong>Ph.D. Candidate</strong> - Specializing in deep learning for musical timbre analysis.</p><a href="#">Student Profile</a></div>
-                    <div class="content-card" data-scroll><h3>[Student Name 2]</h3><p><strong>M.Sc. Candidate</strong> - Researching predictive models for financial markets.</p><a href="#">Student Profile</a></div>
+                    <div class="content-card" data-scroll><h3>[Workshop Title]</h3><p><strong>[Institution], [Date].</strong> A brief description of the workshop or lecture delivered.</p></div>
                 </div>
             </section>
-            
-            <section id="media" class="content-section">
-                <h2 data-scroll>Talks & Interviews</h2>
+
+            <section id="awards" class="content-section">
+                <h2 data-scroll>Awards & Achievements</h2>
                 <div class="content-grid">
-                    <div class="content-card" data-scroll><h3>AI & Indian Classical Music</h3><p>Featured interview on "The Future of AI" podcast discussing AI's role in music preservation.</p><a href="#">Listen Now</a></div>
-                    <div class="content-card" data-scroll><h3>Keynote: Data Science Ethics</h3><p>Keynote speech delivered at the Global Data Summit, focusing on ethical considerations in AI.</p><a href="#">Watch Video</a></div>
+                    <div class="content-card" data-scroll><h3>[Award Name]</h3><p><strong>[Awarding Body], [Year].</strong> Information about the recognition received.</p></div>
                 </div>
             </section>
 
@@ -148,6 +167,7 @@
     <audio id="audio-Pa" src="notes/Pa.wav" preload="auto"></audio>
     <audio id="audio-Dha" src="notes/Dha.wav" preload="auto"></audio>
     <audio id="audio-Ni" src="notes/Ni.wav" preload="auto"></audio>
+    <audio id="audio-Sa_hi" src="notes/Sa_hi.wav" preload="auto"></audio>
 
     <script src="script.js"></script>
 </body>
