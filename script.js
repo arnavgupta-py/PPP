@@ -1,5 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+
     const keys = document.querySelectorAll('.key');
     const keyContainer = document.querySelector('.white-keys');
     const contentSections = document.querySelectorAll('.content-section');
@@ -53,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     };
 
-    const handleKeyActivation = async (key, playSound = true) => {
+    const handleKeyActivation = async (key, playSound = true, shouldScroll = true) => {
         if (!key) return;
 
         const sectionId = key.dataset.section;
@@ -88,14 +92,16 @@ document.addEventListener('DOMContentLoaded', function () {
                     break;
             }
 
-            const headerOffset = 40;
-            const elementPosition = contentContainer.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            if (shouldScroll) {
+                const headerOffset = 40;
+                const elementPosition = contentContainer.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: "smooth"
-            });
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            }
         }
     };
 
@@ -143,7 +149,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     const initializePage = () => {
         if (keys.length > 0) {
-            handleKeyActivation(keys[0], false); 
+            handleKeyActivation(keys[0], false, false);
         }
         handleScrollAnimation();
         window.addEventListener('scroll', handleScrollAnimation);
