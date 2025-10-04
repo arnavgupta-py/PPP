@@ -2,13 +2,9 @@ import numpy as np
 from scipy.io.wavfile import write
 import os
 
-# Sampling rate
-fs = 44100  # 44.1 kHz
-
-# Duration of each note in seconds
+fs = 44100
 duration = 1.0
 
-# Frequencies of Indian classical notes (approximate)
 notes_freq = {
     'Sa': 240,
     'Re': 270,
@@ -20,24 +16,46 @@ notes_freq = {
     'Sa_hi': 480
 }
 
-# Output folder
 output_folder = "notes"
 os.makedirs(output_folder, exist_ok=True)
 
-def generate_sine_wave(frequency, duration, fs):
+def generate_rich_note(frequency, duration, fs):
     t = np.linspace(0, duration, int(fs * duration), endpoint=False)
-    wave = 0.5 * np.sin(2 * np.pi * frequency * t)  # 0.5 to reduce volume
+    
+    harmonics = {
+        1: 1.0, 
+        2: 0.5, 
+        3: 0.3, 
+        4: 0.15 
+    }
+    
+    wave = np.zeros_like(t)
+    for h, amp in harmonics.items():
+        wave += amp * np.sin(2 * np.pi * (frequency * h) * t)
+    
+    attack_time = 0.05
+    release_time = 0.20
+    
+    attack_samples = int(fs * attack_time)
+    release_samples = int(fs * release_time)
+    sustain_samples = len(t) - attack_samples - release_samples
+    
+    attack_envelope = np.linspace(0, 1, attack_samples)
+    release_envelope = np.linspace(1, 0, release_samples)
+    sustain_envelope = np.ones(sustain_samples)
+    
+    envelope = np.concatenate([attack_envelope, sustain_envelope, release_envelope])
+    
+    wave *= envelope
+    
+    wave /= np.max(np.abs(wave))
+    
     return wave
 
-# Generate and save each note
 for note, freq in notes_freq.items():
     print(f"Generating {note}.wav ({freq} Hz)")
-    wave = generate_sine_wave(freq, duration, fs)
-    
-    # Convert to 16-bit PCM
+    wave = generate_rich_note(freq, duration, fs)
     wave_int16 = np.int16(wave * 32767)
-    
-    # Save as .wav file
     write(os.path.join(output_folder, f"{note}.wav"), fs, wave_int16)
 
 print("All notes generated successfully in the 'notes' folder.")
