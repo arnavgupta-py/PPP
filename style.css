@@ -237,6 +237,93 @@ header h2 {
     box-shadow: 0 12px 25px rgba(0,0,0,0.4);
     transform: translateY(-5px);
 }
+.education-timeline-container {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.timeline-progress {
+    position: relative;
+}
+
+.timeline-progress::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background-color: var(--glass-border-color);
+}
+
+.progress-bar {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    background-color: var(--primary-accent);
+    box-shadow: 0 0 10px var(--primary-accent);
+    border-radius: 2px;
+}
+
+.timeline-cards .education-card {
+    position: sticky;
+    top: 100px;
+    margin-bottom: 3rem;
+    transform: scale(0.95);
+    opacity: 0.8;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.timeline-cards .education-card.is-active {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.education-card {
+    padding: 1.5rem 2rem;
+}
+
+.education-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid var(--glass-border-color);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.education-header .degree {
+    font-family: var(--font-heading);
+    color: var(--primary-accent);
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.education-header .branch {
+    font-family: var(--font-body);
+    color: var(--text-color);
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin: 0;
+}
+
+.education-card .college {
+    color: var(--heading-color);
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin: 0 0 0.5rem 0;
+}
+
+.education-card .details {
+    color: var(--text-color);
+    font-size: 1rem;
+    margin: 0;
+}
 .tagline-card {
     grid-column: 1 / -1;
     font-size: 1.2rem;

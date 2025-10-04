@@ -57,6 +57,74 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     };
 
+    const renderEducation = (data) => {
+        const cardsContainer = document.querySelector('.timeline-cards');
+        if (!cardsContainer) return;
+
+        cardsContainer.innerHTML = '';
+        data.forEach((item, index) => {
+            const card = document.createElement('div');
+            card.className = 'content-card education-card';
+            card.style.top = `${100 + index * 20}px`;
+
+            const header = document.createElement('div');
+            header.className = 'education-header';
+            
+            const degree = document.createElement('h3');
+            degree.className = 'degree';
+            degree.textContent = item.degree;
+            
+            const branch = document.createElement('h4');
+            branch.className = 'branch';
+            if (item.branch) branch.textContent = item.branch;
+
+            header.appendChild(degree);
+            header.appendChild(branch);
+
+            const college = document.createElement('p');
+            college.className = 'college';
+            college.textContent = item.college;
+            
+            const details = document.createElement('p');
+            details.className = 'details';
+            details.textContent = item.details;
+            
+            card.appendChild(header);
+            card.appendChild(college);
+            card.appendChild(details);
+            cardsContainer.appendChild(card);
+        });
+    };
+
+    const handleTimelineScroll = () => {
+        const container = document.querySelector('.education-timeline-container');
+        const progressBar = document.querySelector('.progress-bar');
+        const cards = document.querySelectorAll('.timeline-cards .education-card');
+        
+        if (!container || !progressBar || cards.length === 0) return;
+
+        const containerRect = container.getBoundingClientRect();
+        const containerTop = containerRect.top + window.scrollY;
+        const containerHeight = container.offsetHeight;
+        const viewportHeight = window.innerHeight;
+        
+        const scrollStart = containerTop;
+        const scrollEnd = containerTop + containerHeight - viewportHeight;
+        
+        const progress = Math.max(0, Math.min(1, (window.scrollY - scrollStart) / (scrollEnd - scrollStart)));
+        
+        progressBar.style.height = `${progress * 100}%`;
+
+        cards.forEach(card => {
+            const cardRect = card.getBoundingClientRect();
+            if (cardRect.top < 120 && cardRect.top > 80) {
+                 card.classList.add('is-active');
+            } else {
+                card.classList.remove('is-active');
+            }
+        });
+    };
+
     const handleKeyActivation = async (key, playSound = true, shouldScroll = true) => {
         if (!key) return;
 
@@ -84,12 +152,23 @@ document.addEventListener('DOMContentLoaded', function () {
             
             switch (sectionId) {
                 case 'about':
+                    window.removeEventListener('scroll', handleTimelineScroll);
                     const aboutData = await fetchData('data/about.json');
                     if (aboutData) {
                         renderAbout(aboutData);
                         handleScrollAnimation();
                     }
                     break;
+                case 'education':
+                    const eduData = await fetchData('data/education.json');
+                    if (eduData) {
+                        renderEducation(eduData);
+                        handleScrollAnimation(); 
+                        window.addEventListener('scroll', handleTimelineScroll);
+                    }
+                    break;
+                default:
+                    window.removeEventListener('scroll', handleTimelineScroll);
             }
 
             if (shouldScroll) {
