@@ -462,7 +462,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (data) {
                     renderFunction(data);
                 } else {
-                    const targetContainer = targetSection.querySelector('.content-grid') || section.querySelector('.timeline-container') || section.querySelector('.publication-list');
+                    const targetContainer = section.querySelector('.content-grid') || section.querySelector('.timeline-container') || section.querySelector('.publication-list');
                     if (targetContainer) {
                         targetContainer.innerHTML = `<p style="text-align: center; color: var(--text-color);">Could not load content. Please ensure <code>data/${sectionId}.json</code> exists and is correctly formatted.</p>`;
                     }
