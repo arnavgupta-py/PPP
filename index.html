@@ -12,8 +12,8 @@
 </head>
 <body>
     <div class="sticky-links">
-        <a href="javascript:void(0);" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin fa-lg"></i></a>
-        <a href="javascript:void(0);" target="_blank" aria-label="Google Scholar Profile"><i class="fas fa-graduation-cap fa-lg"></i></a>
+        <a href="#" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin fa-lg"></i></a>
+        <a href="#" target="_blank" aria-label="Google Scholar Profile"><i class="fas fa-graduation-cap fa-lg"></i></a>
     </div>
 
     <div class="portfolio-container">
@@ -63,23 +63,23 @@
                             <span class="key-sublabel">Work Experience</span>
                         </div>
                         <div class="key" data-section="publications" data-note="Ma" tabindex="0">
-                            <span class="key-label">м</span>
+                            <span class="key-label">म</span>
                             <span class="key-sublabel">Publications</span>
                         </div>
                         <div class="key" data-section="events" data-note="Pa" tabindex="0">
-                            <span class="key-label">п</span>
-                            <span class="key-sublabel">Events Judged</span>
+                            <span class="key-label">प</span>
+                            <span class="key-sublabel">Event Conducted</span>
                         </div>
-                        <div class="key" data-section="workshops" data-note="Dha" tabindex="0">
-                            <span class="key-label">д</span>
-                            <span class="key-sublabel">Guest Lectures</span>
+                        <div class="key" data-section="contributions" data-note="Dha" tabindex="0">
+                            <span class="key-label">ध</span>
+                            <span class="key-sublabel">Contributions</span>
                         </div>
                         <div class="key" data-section="awards" data-note="Ni" tabindex="0">
-                            <span class="key-label">н</span>
+                            <span class="key-label">नि</span>
                             <span class="key-sublabel">Awards</span>
                         </div>
                         <div class="key" data-section="contact" data-note="Sa_hi" tabindex="0">
-                            <span class="key-label">са</span>
+                            <span class="key-label">सां</span>
                             <span class="key-sublabel">Contact</span>
                         </div>
                     </div>
@@ -94,32 +94,35 @@
             </section>
 
             <section id="education" class="content-section">
-                <h2 data-scroll>Education Timeline</h2>
-                <div class="education-timeline-container">
-                    <div class="timeline-progress">
-                        <div class="progress-bar"></div>
-                    </div>
-                    <div class="timeline-cards"></div>
-                </div>
+                <h2 data-scroll>Education</h2>
+                <div class="timeline-bar-container"></div>
+                <div class="content-grid"></div>
+
+                <h2 data-scroll class="section-subtitle">Continued Learning</h2>
+                <div id="certificates-container"></div>
             </section>
 
             <section id="experience" class="content-section">
                 <h2 data-scroll>Work Experience & Responsibilities</h2>
-                <div class="content-grid"></div>
+                <div class="timeline-container"></div>
             </section>
 
             <section id="publications" class="content-section">
                 <h2 data-scroll>Selected Publications</h2>
-                <div class="content-grid"></div>
+                <div class="publication-controls">
+                    <input type="search" id="publication-search" placeholder="Search by title, author, or journal...">
+                    <div class="filter-group" id="publication-filters"></div>
+                </div>
+                <div class="publication-list"></div>
             </section>
             
             <section id="events" class="content-section">
-                <h2 data-scroll>Events Judged</h2>
+                <h2 data-scroll>Event Conducted</h2>
                 <div class="content-grid"></div>
             </section>
             
-            <section id="workshops" class="content-section">
-                <h2 data-scroll>Workshops & Guest Lectures</h2>
+            <section id="contributions" class="content-section">
+                <h2 data-scroll>Key Contributions & Projects</h2>
                 <div class="content-grid"></div>
             </section>
 
@@ -139,6 +142,19 @@
         </footer>
     </div>
     
+    <template id="template-education">
+        <div class="content-card education-card" data-scroll>
+            <div class="education-header">
+                <h3 class="degree"></h3>
+                <h4 class="branch"></h4>
+            </div>
+            <div class="education-body">
+                <p class="college"></p>
+            </div>
+            <p class="details"></p>
+        </div>
+    </template>
+
     <template id="template-tagline">
         <div class="content-card tagline-card" data-scroll>
             <p></p>
@@ -150,6 +166,114 @@
             <i class=""></i>
             <h4></h4>
             <p></p>
+        </div>
+    </template>
+    
+    <template id="template-certificate-card">
+        <div class="content-card certificate-card">
+            <div class="certificate-image-wrapper">
+                <img src="" alt="" class="certificate-image">
+            </div>
+            <div class="certificate-info">
+                <h4 class="certificate-title"></h4>
+                <p class="certificate-issuer"></p>
+            </div>
+        </div>
+    </template>
+    
+    <template id="template-experience">
+        <div class="timeline-item" data-scroll>
+            <div class="timeline-node-vertical"></div>
+            <div class="content-card experience-card">
+                <div class="experience-header">
+                    <h3 class="experience-title"></h3>
+                    <p class="experience-dates"></p>
+                </div>
+                <p class="experience-institution"></p>
+                <ul class="experience-responsibilities"></ul>
+            </div>
+        </div>
+    </template>
+
+    <template id="template-publication">
+        <div class="publication-item" data-scroll>
+            <div class="publication-details">
+                <h3 class="publication-title"></h3>
+                <p class="publication-authors"></p>
+                <p class="publication-outlet"></p>
+            </div>
+            <div class="publication-action">
+                <a href="#" class="publication-link" target="_blank" rel="noopener noreferrer">Read Paper &rarr;</a>
+            </div>
+        </div>
+    </template>
+
+    <template id="template-event">
+        <div class="content-card event-card" data-scroll>
+            <div class="event-header">
+                <h3 class="event-name"></h3>
+                <i class="event-icon"></i>
+            </div>
+            <div class="event-body">
+                <p class="event-detail"><strong class="detail-label">Role:</strong> <span class="event-role"></span></p>
+                <p class="event-detail"><strong class="detail-label">Organizer:</strong> <span class="event-organizer"></span></p>
+                <p class="event-detail"><strong class="detail-label">Date:</strong> <span class="event-date"></span></p>
+            </div>
+        </div>
+    </template>
+    
+    <template id="template-contribution">
+        <div class="content-card contribution-card" data-scroll>
+            <div class="contribution-header">
+                <h3 class="contribution-title"></h3>
+                <i class="contribution-icon"></i>
+            </div>
+            <div class="contribution-body">
+                <p class="contribution-detail"><strong class="detail-label">Role:</strong> <span class="contribution-role"></span></p>
+                <p class="contribution-detail"><strong class="detail-label">Organization:</strong> <span class="contribution-organization"></span></p>
+                <p class="contribution-detail-desc"></p>
+            </div>
+        </div>
+    </template>
+
+    <template id="template-award">
+        <div class="content-card award-card" data-scroll>
+            <div class="award-icon-container">
+                <i class="award-icon"></i>
+            </div>
+            <h3 class="award-name"></h3>
+            <p class="award-body"></p>
+            <p class="award-year"></p>
+        </div>
+    </template>
+
+    <template id="template-contact">
+        <div class="content-card contact-card" data-scroll>
+            <div class="contact-message">
+                <p class="contact-text"></p>
+                <div class="memberships">
+                    <h4 class="memberships-title">Professional Memberships</h4>
+                    <ul class="memberships-list"></ul>
+                </div>
+            </div>
+            <div class="contact-details">
+                <a href="" class="contact-item email">
+                    <i class="fas fa-envelope"></i>
+                    <span></span>
+                </a>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span class="address"></span>
+                </div>
+                <a href="" class="contact-item linkedin" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="" class="contact-item scholar" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Google Scholar</span>
+                </a>
+            </div>
         </div>
     </template>
 

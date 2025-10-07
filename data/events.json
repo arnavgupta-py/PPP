@@ -1,0 +1,44 @@
+[
+  {
+    "name": "National Level Project Competition 'e-MERGE'",
+    "role": "Judge",
+    "organizer": "Vidyavardhini's College of Engineering and Technology, Vasai",
+    "date": "March 2024",
+    "icon": "fas fa-gavel"
+  },
+  {
+    "name": "Guest Lecture on 'Modern Data Science'",
+    "role": "Keynote Speaker",
+    "organizer": "Thakur College of Engineering and Technology, Mumbai",
+    "date": "February 2024",
+    "icon": "fas fa-microphone-alt"
+  },
+  {
+    "name": "Syllabus Revision Committee Workshop",
+    "role": "Session Chair",
+    "organizer": "University of Mumbai",
+    "date": "December 2023",
+    "icon": "fas fa-chalkboard-teacher"
+  },
+  {
+    "name": "AI & Machine Learning Hackathon",
+    "role": "Mentor and Judge",
+    "organizer": "K. J. Somaiya College of Engineering, Mumbai",
+    "date": "October 2023",
+    "icon": "fas fa-gavel"
+  },
+  {
+    "name": "Faculty Development Program on 'IoT'",
+    "role": "Resource Person",
+    "organizer": "Terna Engineering College, Navi Mumbai",
+    "date": "August 2023",
+    "icon": "fas fa-chalkboard-teacher"
+  },
+  {
+    "name": "Annual Technical Symposium 'Technovision'",
+    "role": "Chief Guest",
+    "organizer": "St. John College of Engineering and Management, Palghar",
+    "date": "April 2023",
+    "icon": "fas fa-ribbon"
+  }
+]

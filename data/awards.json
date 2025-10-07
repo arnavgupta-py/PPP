@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Best Research Paper Award",
+    "body": "IEEE International Conference on Data Intelligence (ICDI)",
+    "year": 2024,
+    "icon": "fas fa-trophy"
+  },
+  {
+    "name": "Excellence in Teaching Award",
+    "body": "Vidyavardhini's College of Engineering and Technology",
+    "year": 2022,
+    "icon": "fas fa-medal"
+  },
+  {
+    "name": "Young Scientist Grant",
+    "body": "Department of Science & Technology, India",
+    "year": 2021,
+    "icon": "fas fa-award"
+  },
+  {
+    "name": "First Place, 'Innovate India' Hackathon",
+    "body": "Project Mentorship",
+    "year": 2020,
+    "icon": "fas fa-star"
+  },
+  {
+    "name": "Certificate of Recognition",
+    "body": "Computer Society of India (CSI)",
+    "year": 2019,
+    "icon": "fas fa-certificate"
+  }
+]
